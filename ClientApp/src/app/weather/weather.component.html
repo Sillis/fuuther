@@ -1,0 +1,58 @@
+<div class="container" id="outside">
+    <div class="sub-container" id="first-level">
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <h3 class="text-center my-4 search-header">Find a place:</h3>
+                <form 
+                    [formGroup]="weatherSearchForm" (ngSubmit)="sendToAPIXU(weatherSearchForm.value)">
+                    <div class="form-group input-group">
+                        <input
+                            class="form-control width100"
+                            type="text"
+                            id="weatherLocation"
+                            aria-describedby="weatherLocation"
+                            placeholder="Please input a Location"
+                            formControlName="location" />
+                            <span class="input-group-btn">
+                                <button (click)=searchPlace() type="submit" class="btn btn-success btn-md button-submit">
+                                    <img src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Vector_search_icon.svg" class="icon search-icon">
+                                </button>
+                            </span>
+                    </div>
+                </form> 
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center" *ngIf="isShow">
+                <h3 class="text-center">{{this.weatherData?.name}}, {{this.weatherData?.sys.country}}</h3>
+                <ul>
+                    <li class="text-center weather-item">Conditions: {{this.weatherData?.weather[0].description}}</li>
+                    <li class="text-center weather-item">Temperature: °C {{this.weatherData?.main.temp}}</li>
+                    <li class="text-center weather-item">Feels like: °C {{this.weatherData?.main.feels_like}}</li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <strong>Previous searches</strong>
+                <table>
+                    <tr>
+                        <th>City</th>
+                        <th>Weather</th>
+                        <th>Feels like</th>
+                    </tr>
+                    <tr>
+                        <td>{{this.weatherData?.name}}</td>
+                        <td>°C {{this.weatherData?.main.temp}}</td>
+                        <td>°C {{this.weatherData?.main.feels_like}}</td>
+                    </tr>
+                </table>
+                <ul>
+                    <li *ngFor="let item of items; let i = index">
+                        {{this.weatherData?.name}} {{this.weatherData?.main.temp}} {{this.weatherData?.main.feels_like}}
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>

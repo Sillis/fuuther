@@ -1,0 +1,58 @@
+
+
+#outside {
+    width: 100%;
+    display: flex;
+    justify-content: center !important;
+}
+
+#first-level {
+    border-radius: 15px;
+}
+
+.container {
+    padding-top: 5em;
+    width: 100%;
+}    
+
+.sub-container {
+    width: 50%;
+    background-color: lightblue;
+    margin: 0 auto;
+    border-radius: none;
+    padding: 10px;
+}
+ul {
+    padding-left: 0 !important;
+}
+
+li {
+    list-style: none;
+}
+
+.search-header {
+    display: none;
+}
+
+.button-submit {
+    border-radius: 0px 5px 5px 0px;
+}
+
+.weather-item {
+    text-transform: capitalize;
+}
+
+table {
+    margin: 0 auto;
+}
+
+td {
+    width: 33%;
+}
+
+th {
+    width: 33%;
+    text-align: center;
+    padding-left: 2em;
+    padding-right: 2em;
+}
